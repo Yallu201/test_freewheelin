@@ -10,7 +10,6 @@
     styled-components                   # 컴포넌트 단위 css 적용
 ### 폴더 구조
     .
-    ├── node_modules                    # 라이브러리 관리 폴더
     ├── public                          # 정적파일 저장 폴더
     │     └── data                      # 제공된 JSON 파일 저장 폴더
     ├── src                             # 개발 리소스 관리 폴더
@@ -28,8 +27,8 @@
 
 1. 퍼블리싱
     * Figma 디자인 가이드를 준수하였습니다.
-    * 반응형 웹 구현 및 레이아웃 설계를 css내 flexbox를 활용하였습니다.
-
+    * 반응형 웹 구현 및 레이아웃 설계를 css내 `flexbox`를 활용하였습니다.
+    * 컴포넌트 단위의 마크업을 위하여 `styled-components` 라이브러리를 활용하였습니다.
 2. 컴포넌트 구현
     * 화면은 크게 `ProblemSection`, `SimilarSection` 나누어 개발 하였습니다.
     * `ProblemSection` 과 `SimilarSection`의 공통 구현부분을 찾아서 구현하였습니다.
