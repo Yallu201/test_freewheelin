@@ -1,17 +1,10 @@
 import React from "react";
-import { Section, Header } from "components";
-import { ProblemContainer } from "containers";
+import { Section, Header, ProblemList } from "components";
 const ProblemSection = ({ list }) => {
 	return (
 		<Section>
 			<Header>학습지 상세 편집</Header>
-			{list.map((item, index) => (
-				<ProblemContainer
-					key={`problem_${item.id}`}
-					seq={index + 1}
-					{...item}
-				/>
-			))}
+			<ProblemList list={list} />
 		</Section>
 	);
 };
