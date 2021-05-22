@@ -3,11 +3,11 @@
 ### 목표
     퍼블리싱 및 상태관리 요구사항에 맞춰 React CRA 개발
 ### 추가 적용 라이브러리
-    axios                               # 비동기 호출
-    redux                               # 상태관리
-    redux-actions                       # 액션함수 및 리듀서 생성
-    react-redux                         # 리액트에 redux 적용 ( connect )
-    styled-components                   # 컴포넌트 단위 css 적용
+    axios                               # 비동기 호출 라이브러리
+    redux                               # 상태관리용 라이브러리
+    redux-actions                       # 액션함수 및 reducer 생성 라이브러리
+    react-redux                         # 리액트에 redux 적용을 위한 라이브러리
+    styled-components                   # 컴포넌트 단위 css 개발을 위한 라이브러리
 ### 폴더 구조
     .
     ├── public                          # 정적파일 저장 폴더
@@ -42,10 +42,9 @@
       * `ProblemSectionContainer`, `SimilarSectionContainer`
 4. 상태관리  
     * `문제`(`fe-problems.json`) 와 `유사유형`(`fe-similars.json`) 데이터는 `public/src` 경로에 저장합니다.
-    * 위 데이터의 호출 시점은
-      * `src/containers/ProblemSectionContainer.jsx`의 `componentMounted`
-      * `유사문항 버튼 클릭` 입니다.
-      * axios를 활용하여 비동기 호출합니다.
+    * 위 데이터의 호출 시점은 아래와 같으며, `axios`를 활용하여 비동기 호출합니다.
+      * `src/containers/ProblemSectionContainer.jsx`의 `componentMounted` 시점
+      * `유사문항` 버튼 클릭 시
     * 데이터의 호출은 redux없이 가능하지만, 다른 버튼 클릭 이벤트는 컴포넌트 계층 이동이 많은 이슈가 있습니다.
     * 따라서 호출 이후 `problem` 리듀서 내부에 각각 `problems`, `similar`로 저장합니다.
     * 이후 action 함수를 통하여 화면내 버튼의 이벤트를 처리합니다.
@@ -54,8 +53,8 @@
       * `SET_SIMILAR_PROBLEMS`: `유사문항` 버튼 클릭 시 `fe-similars.json` 호출
       * `ACTIVE_PROBLEM`: `유사문항` 버튼 클릭 시 문제 `선택`
       * `DELETE_PROBLEM`:  `삭제` 버튼 클릭 시 좌측 목록에서 `삭제`
-      * `MOVE_SIMILAR_PROBLEM`: `추가` 버튼 클릭 시 우측 선택한 유사유형 문제를 좌측 문제 목록으로 `이동`
-      * `REPLACE_SIMILAR_WITH_PROBLEM`: `교체` 버튼 클릭 시 우측 선택한 유사유형 문제를 좌측 활성화 문제와 위치 `교체`
+      * `MOVE_SIMILAR_PROBLEM`: `추가` 버튼 클릭 시 선택한 우측 목록 문제를 좌측 목록으로 `이동`
+      * `REPLACE_SIMILAR_WITH_PROBLEM`: `교체` 버튼 클릭 시 우측 및 좌측 선택한 문제 위치 `교체`
 
 ### 이슈
   * 주어진 데이터 객체의 `id`로 컴포넌트 리스트의 `key`값을 할당하는경우 우측 유사문항 목록에 `fe-similars.json`를 지속해서 갱신하며 버튼을 작동하면, `key`값에 중복이 발생합니다.
