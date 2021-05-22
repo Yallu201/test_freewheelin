@@ -86,9 +86,7 @@ const reducer = handleActions(
 			// 활성화된 문제 추출 ... [4]
 			const problem_ = problems[indexActive];
 			// 선택한 유사 문제 추출 ... [5]
-			const similar_ = state.similars.find(
-				(_, index) => index + 1 === seq,
-			);
+			const similar_ = similars.find((_, index) => index + 1 === seq);
 
 			// [1] 에서 [3] 위치에 [5] 삽입
 			problems.splice(indexActive, 1, { ...similar_, isActive: true });
