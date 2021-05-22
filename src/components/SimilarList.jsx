@@ -27,4 +27,4 @@ const ProblemList = ({ list }) => {
 	);
 };
 
-export default React.memo(ProblemList);
+export default ProblemList;

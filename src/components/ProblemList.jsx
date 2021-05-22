@@ -12,7 +12,7 @@ const ProblemList = ({ list }) => {
 		<Warp>
 			{list.map((item, index) => (
 				<ProblemContainer
-					key={`problem_${item.id}`}
+					key={`problem_${item.id}_${index}`}
 					seq={index + 1}
 					{...item}
 				/>
@@ -21,4 +21,4 @@ const ProblemList = ({ list }) => {
 	);
 };
 
-export default React.memo(ProblemList);
+export default ProblemList;
